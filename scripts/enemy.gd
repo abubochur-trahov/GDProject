@@ -58,7 +58,7 @@ func _on_pid_hitbox_body_exited(body):
 
 
 func deal_with_damage():
-	if player_inattack_range: #and global.player_current_attack
+	if player_inattack_range:
 		health -= 20
 		print("enemys health =", health)
 		if health <= 0:

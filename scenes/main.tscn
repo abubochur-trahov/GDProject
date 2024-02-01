@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkeq615dclr1" path="res://scenes/tile_map.tscn" id="1_d8w7q"]
 [ext_resource type="PackedScene" uid="uid://dhca874ad8q4v" path="res://scenes/player.tscn" id="2_8gq5d"]
-[ext_resource type="PackedScene" uid="uid://spnomuyo7205" path="res://scenes/pidoras.tscn" id="3_kyey4"]
+[ext_resource type="PackedScene" uid="uid://bucaxqfyc3ggy" path="res://scenes/enemy.tscn" id="3_toeru"]
 
 [node name="Main" type="Node2D"]
 
@@ -22,5 +22,5 @@ position_smoothing_speed = 8.0
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_kyey4")]
-position = Vector2(1031, 58)
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_toeru")]
+position = Vector2(1014, 59)

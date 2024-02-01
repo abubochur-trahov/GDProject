@@ -1,7 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://spnomuyo7205"]
+[gd_scene load_steps=34 format=3 uid="uid://bucaxqfyc3ggy"]
 
-[ext_resource type="Script" path="res://scripts/pidoras.gd" id="1_8bdru"]
 [ext_resource type="Texture2D" uid="uid://bhfmmg7kvpa75" path="res://textures/Bot Wheel/move with FX.png" id="1_72uyq"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_opo3i"]
 [ext_resource type="Texture2D" uid="uid://dhpb1p5w77j82" path="res://textures/Bot Wheel/shoot with FX.png" id="2_35x01"]
 [ext_resource type="Texture2D" uid="uid://1b3xrvqpw6qd" path="res://textures/Bot Wheel/static idle.png" id="2_jnime"]
 [ext_resource type="Texture2D" uid="uid://c05qef80epxsf" path="res://textures/Bot Wheel/wake.png" id="3_fbrfg"]
@@ -204,7 +204,7 @@ radius = 40.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 3
-script = ExtResource("1_8bdru")
+script = ExtResource("1_opo3i")
 
 [node name="poprigunchik" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -215,12 +215,10 @@ animation = &"idle"
 frame_progress = 0.308998
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, -2)
 shape = SubResource("CapsuleShape2D_p5bjf")
 
 [node name="DetectionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
