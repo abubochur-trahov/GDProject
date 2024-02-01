@@ -6,7 +6,7 @@ extends CharacterBody2D
 var enemy_inattack_range = false
 var enemy = null
 var enemy_attack_cooldown = true
-var health_bar = 100
+var health_bar = 200
 var attack_ip = false
 
 
@@ -24,6 +24,7 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	enemy_attack()
+	attack()
 	
 	#если не на земле может летать
 	if not is_on_floor():
@@ -71,10 +72,6 @@ func death():
 	get_tree().change_scene_to_file("res://scenes/death_wish.tscn") #переход на сцену смерти
 
 
-func attack():
-	pass
-
-
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("bullet"): #если у обьекта вошедшего в область есть функция bullet
 		enemy_inattack_range = true #то он может атаковать
@@ -97,3 +94,14 @@ func enemy_attack():
 #таймер кулдауна
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
+
+
+func attack():
+	if Input.is_action_just_pressed("attack"):
+		Global.player_current_attack = true
+		$deal_attack_timer.start()
+		
+
+func _on_deal_attack_timer_timeout():
+	$deal_attack_timer.stop()
+	Global.player_current_attack = false

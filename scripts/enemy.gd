@@ -9,6 +9,7 @@ var player_chase = false
 var player = null
 var health = 100
 var player_inattack_range = false
+var can_take_damage = true
 
 
 func _physics_process(delta):
@@ -58,8 +59,15 @@ func _on_pid_hitbox_body_exited(body):
 
 
 func deal_with_damage():
-	if player_inattack_range and Global.player_current_attack == true:
-		health -= 20
-		print("enemys health =", health)
-		if health <= 0:
-			self.queue_free()
+	if player_inattack_range and Global.player_current_attack:
+		if can_take_damage:
+			health -= 20
+			can_take_damage = false
+			$attack_cooldown.start()
+			print("enemys health =", health)
+			if health <= 0:
+				self.queue_free()
+
+
+func _on_attack_cooldown_timeout():
+	can_take_damage = true
