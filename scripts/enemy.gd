@@ -14,6 +14,7 @@ var can_take_damage = true
 
 func _physics_process(delta):
 	deal_with_damage()
+	health_update()
 	#гравитация
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -64,10 +65,18 @@ func deal_with_damage():
 			health -= 20
 			can_take_damage = false
 			$attack_cooldown.start()
-			print("enemys health =", health)
 			if health <= 0:
 				self.queue_free()
 
 
 func _on_attack_cooldown_timeout():
 	can_take_damage = true
+
+
+func health_update():
+	var healthbar = $healthbar
+	healthbar.value = health
+	if health >= 200:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true

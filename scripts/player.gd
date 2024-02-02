@@ -6,7 +6,7 @@ extends CharacterBody2D
 var enemy_inattack_range = false
 var enemy = null
 var enemy_attack_cooldown = true
-var health_bar = 200
+var health = 200
 var attack_ip = false
 
 
@@ -25,6 +25,7 @@ func _physics_process(delta):
 	get_input()
 	enemy_attack()
 	attack()
+	health_update()
 	
 	#если не на земле может летать
 	if not is_on_floor():
@@ -56,7 +57,7 @@ func _physics_process(delta):
 		pl.flip_h = false
 	
 	#если здоровье истрачено, вызывается функция отвечающая за смерть персонажа
-	if health_bar <= 0:
+	if health <= 0:
 		position.x = 161
 		position.y = 433
 		death()
@@ -66,7 +67,7 @@ func _physics_process(delta):
 
 #смерть
 func death():
-	health_bar = 0
+	health = 0
 	set_physics_process(false) #остановка физического процесса
 	get_tree().reload_current_scene() #перезапуск текущей сцены
 	get_tree().change_scene_to_file("res://scenes/death_wish.tscn") #переход на сцену смерти
@@ -85,10 +86,9 @@ func _on_player_hitbox_body_exited(body):
 func enemy_attack():
 	#если бот может аттаковать и прошёл кулдаун
 	if enemy_inattack_range and enemy_attack_cooldown:
-		health_bar -= 20 #здоровье уменьшается на 20
+		health -= 20 #здоровье уменьшается на 20
 		enemy_attack_cooldown = false #время кулдауна включается
 		$attack_cooldown.start()
-		print(health_bar)
 
 
 #таймер кулдауна
@@ -105,3 +105,31 @@ func attack():
 func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	Global.player_current_attack = false
+
+
+func health_update():
+	var healthbar = $Healthbar
+	healthbar.value = health
+	if health >= 200:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+
+
+func _on_regen_timer_timeout():
+	if health <= 200 and health > 0:
+		health += 20
+		if health > 200:
+			health = 200
+
+
+
+
+
+
+
+
+
+
+func player():
+	pass

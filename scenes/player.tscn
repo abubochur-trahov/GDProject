@@ -35,7 +35,22 @@ wait_time = 0.8
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
+[node name="regen_timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+modulate = Color(0.258824, 0.635294, 0, 1)
+offset_left = -31.0
+offset_top = -39.0
+offset_right = 99.0
+offset_bottom = -12.0
+scale = Vector2(0.5, 0.5)
+max_value = 200.0
+show_percentage = false
+
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
+[connection signal="timeout" from="regen_timer" to="." method="_on_regen_timer_timeout"]
