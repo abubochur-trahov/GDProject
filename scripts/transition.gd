@@ -3,6 +3,8 @@ extends CanvasLayer
 
 signal transitioned
 
+#func _ready():
+#	transition()
 
 func transition():
 	$ColorRect.visible = true

@@ -1,21 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cm0tt6arn8bg0"]
 
-[ext_resource type="Script" path="res://scenes/transition.gd" id="1_dh8fp"]
-
-[sub_resource type="Animation" id="Animation_683ks"]
-resource_name = "fade_to_normal"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
+[ext_resource type="Script" path="res://scripts/transition.gd" id="1_benx5"]
 
 [sub_resource type="Animation" id="Animation_0ij3w"]
 length = 0.001
@@ -47,6 +32,21 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_683ks"]
+resource_name = "fade_to_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lan3g"]
 _data = {
 "RESET": SubResource("Animation_0ij3w"),
@@ -55,7 +55,7 @@ _data = {
 }
 
 [node name="transition" type="CanvasLayer"]
-script = ExtResource("1_dh8fp")
+script = ExtResource("1_benx5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
