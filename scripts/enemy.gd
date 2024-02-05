@@ -49,6 +49,10 @@ func bullet():
 	pass
 
 
+func enemy():
+	pass
+
+
 func _on_pid_hitbox_body_entered(body):
 	if body.has_method("attack"):
 		player_inattack_range = true

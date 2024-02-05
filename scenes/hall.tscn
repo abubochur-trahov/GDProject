@@ -31,20 +31,20 @@ autostart = true
 position = Vector2(809, 519)
 
 [node name="Player" parent="." instance=ExtResource("2_8gq5d")]
-position = Vector2(214, 465)
+position = Vector2(188, 463)
 rotation = 0.0139433
 
 [node name="main_room" type="Area2D" parent="."]
 position = Vector2(-659, 470)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main_room"]
-position = Vector2(748, -13.5)
+position = Vector2(705, -13)
 shape = SubResource("RectangleShape2D_obe3j")
 
 [node name="right_hall" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right_hall"]
-position = Vector2(1035.5, 276.5)
+position = Vector2(1097, 280)
 shape = SubResource("RectangleShape2D_c6e0h")
 
 [node name="upside" type="Area2D" parent="."]
@@ -55,23 +55,41 @@ shape = SubResource("RectangleShape2D_p28wi")
 
 [node name="transition" parent="." instance=ExtResource("5_smug8")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="main3" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="main3"]
 polygon = PackedVector2Array(76, 595, 77, 502, -49, 502, -47, 402, 76, 403, 78, 375, 201, 374, 202, 319, -123, 319, -164, 500, -132, 637, 66, 683, 131, 673, 186, 615, 120, 597)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="main2" type="ColorRect" parent="main3"]
 offset_left = -685.0
 offset_top = -718.0
 offset_right = 77.0
 offset_bottom = 950.0
 color = Color(0, 0, 0, 1)
 
-[node name="161441314555-p-prozrachnii-temnii-fon-png-78" type="Sprite2D" parent="."]
+[node name="main" type="Sprite2D" parent="main3"]
 position = Vector2(216.553, 31.1938)
 rotation = 1.57079
 scale = Vector2(1.28274, 0.225693)
 texture = ExtResource("6_8i2m7")
+
+[node name="right" type="StaticBody2D" parent="."]
+
+[node name="right" type="CollisionPolygon2D" parent="right"]
+polygon = PackedVector2Array(1030, 372, 1068, 373, 1068, 342, 1239, 342, 1237, 198, 1069, 197, 1046, 182, 1033, 150, 1272, 163, 1281, 248, 1270, 377, 1138, 406, 1042, 397)
+
+[node name="right2" type="Sprite2D" parent="right"]
+position = Vector2(885.201, 119.013)
+rotation = -1.57079
+scale = Vector2(1.41957, 0.3035)
+texture = ExtResource("6_8i2m7")
+
+[node name="ColorRect" type="ColorRect" parent="right"]
+offset_left = 1072.0
+offset_top = -720.0
+offset_right = 1709.0
+offset_bottom = 951.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="main_room" to="." method="_on_main_room_body_entered"]
 [connection signal="body_entered" from="right_hall" to="." method="_on_right_hall_body_entered"]

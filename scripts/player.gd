@@ -74,12 +74,12 @@ func death():
 
 
 func _on_player_hitbox_body_entered(body):
-	if body.has_method("bullet"): #если у обьекта вошедшего в область есть функция bullet
+	if body.has_method("enemy"): #если у обьекта вошедшего в область есть функция bullet
 		enemy_inattack_range = true #то он может атаковать
 
 
 func _on_player_hitbox_body_exited(body):
-	if body.has_method("bullet"): #если у обьекта вышедшего из области есть функция bullet
+	if body.has_method("enemy"): #если у обьекта вышедшего из области есть функция bullet
 		enemy_inattack_range = false #то он не может атаковать
 
 
