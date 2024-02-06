@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4f4ra353fqb2"]
+[gd_scene load_steps=9 format=3 uid="uid://c4f4ra353fqb2"]
 
 [ext_resource type="PackedScene" uid="uid://bkeq615dclr1" path="res://scenes/tile_map.tscn" id="1_d8w7q"]
 [ext_resource type="Script" path="res://scripts/hall.gd" id="1_sdb4v"]
 [ext_resource type="PackedScene" uid="uid://dhca874ad8q4v" path="res://scenes/player.tscn" id="2_8gq5d"]
-[ext_resource type="PackedScene" uid="uid://bucaxqfyc3ggy" path="res://scenes/enemy.tscn" id="3_toeru"]
 [ext_resource type="PackedScene" uid="uid://cm0tt6arn8bg0" path="res://scenes/transition.tscn" id="5_smug8"]
 [ext_resource type="Texture2D" uid="uid://51go7dd367ty" path="res://textures/1614413145_55-p-prozrachnii-temnii-fon-png-78.png" id="6_8i2m7"]
 
@@ -26,9 +25,6 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_toeru")]
-position = Vector2(809, 519)
 
 [node name="Player" parent="." instance=ExtResource("2_8gq5d")]
 position = Vector2(188, 463)

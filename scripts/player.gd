@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var bullet = load("res://scenes/bullet.tscn")
 @export var speed = 250
 @export var rotation_speed = 5
 @export var gravity = 630
@@ -26,6 +27,10 @@ func _physics_process(delta):
 	enemy_attack()
 	attack()
 	health_update()
+	
+	
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 	
 	#если не на земле может летать
 	if not is_on_floor():
@@ -121,6 +126,13 @@ func _on_regen_timer_timeout():
 		health += 20
 		if health > 200:
 			health = 200
+			
+
+
+func shoot():
+	var b = bullet.instantiate()
+	owner.add_child(b)
+	b.transform = $Muzzle.global_transform
 
 
 

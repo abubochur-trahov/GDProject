@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 
+@export var Bullet : PackedScene
 @export var speed = 50
 @export var gravity = 630
 @onready var pid = $poprigunchik
