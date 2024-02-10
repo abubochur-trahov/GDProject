@@ -208,11 +208,19 @@ script = ExtResource("1_opo3i")
 
 [node name="poprigunchik" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+<<<<<<< HEAD
 position = Vector2(-7.99999, -4)
 scale = Vector2(2.23077, 2.23077)
 sprite_frames = SubResource("SpriteFrames_406h1")
 animation = &"idle"
 frame_progress = 0.510206
+=======
+scale = Vector2(2.23077, 2.23077)
+sprite_frames = SubResource("SpriteFrames_406h1")
+animation = &"attack"
+frame_progress = 0.0662231
+offset = Vector2(-3.5862, -1.7931)
+>>>>>>> f6bd53b (lot of changes)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -228,9 +236,12 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_jukyo")
 
 [node name="pid_hitbox" type="Area2D" parent="."]
+<<<<<<< HEAD
 visible = false
 collision_layer = 2
 collision_mask = 2
+=======
+>>>>>>> f6bd53b (lot of changes)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pid_hitbox"]
 shape = SubResource("CircleShape2D_snevb")

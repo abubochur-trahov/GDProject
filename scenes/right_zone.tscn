@@ -10,7 +10,11 @@
 size = Vector2(98.58, 271.293)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sr0sb"]
+<<<<<<< HEAD
 size = Vector2(905, 383)
+=======
+size = Vector2(151, 9.5)
+>>>>>>> f6bd53b (lot of changes)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxvq6"]
 size = Vector2(67, 20)
@@ -65,6 +69,10 @@ color = Color(0, 0, 0, 1)
 position = Vector2(1376, 660)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pvpshnica"]
+<<<<<<< HEAD
+=======
+position = Vector2(-141.5, -186.75)
+>>>>>>> f6bd53b (lot of changes)
 shape = SubResource("RectangleShape2D_sr0sb")
 
 [node name="pvpshka" type="ColorRect" parent="pvpshnica"]

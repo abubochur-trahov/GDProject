@@ -11,11 +11,20 @@ var player = null
 var health = 100
 var player_inattack_range = false
 var can_take_damage = true
+<<<<<<< HEAD
+=======
+var ubili_pistoletom = false
+>>>>>>> f6bd53b (lot of changes)
 
 
 func _physics_process(delta):
 	deal_with_damage()
 	health_update()
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> f6bd53b (lot of changes)
 	#гравитация
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -24,7 +33,10 @@ func _physics_process(delta):
 	if player_chase:
 		position += (player.position - position) / speed #преследование игрока
 		pid.play('walk') #анимация ходьбы
+<<<<<<< HEAD
 		
+=======
+>>>>>>> f6bd53b (lot of changes)
 		#поворот бота в зависимости от направления
 		if (player.position.x - position.x) < 0:
 			pid.flip_h = true
@@ -57,6 +69,11 @@ func enemy():
 func _on_pid_hitbox_body_entered(body):
 	if body.has_method("attack"):
 		player_inattack_range = true
+<<<<<<< HEAD
+=======
+	if body.has_method('ubiystvo'):
+		ubili_pistoletom = true
+>>>>>>> f6bd53b (lot of changes)
 
 
 func _on_pid_hitbox_body_exited(body):
@@ -72,6 +89,15 @@ func deal_with_damage():
 			$attack_cooldown.start()
 			if health <= 0:
 				self.queue_free()
+<<<<<<< HEAD
+=======
+	if ubili_pistoletom:
+		health -= 10
+		ubili_pistoletom = false
+		$attack_cooldown.start()
+		if health <= 0:
+			self.queue_free()
+>>>>>>> f6bd53b (lot of changes)
 
 
 func _on_attack_cooldown_timeout():

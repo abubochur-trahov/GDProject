@@ -5,10 +5,18 @@ func _ready():
 	if Global.exit_pos:
 		$player.position.x = 762
 		$player.position.y = -12
+<<<<<<< HEAD
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+=======
+		Global.exit_pos = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+>>>>>>> f6bd53b (lot of changes)
 	pass
 
 

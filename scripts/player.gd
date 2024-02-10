@@ -58,8 +58,19 @@ func _physics_process(delta):
 	#поворот взависимости от направления движения
 	if velocity.x < 0:
 		pl.flip_h = true
+<<<<<<< HEAD
 	elif velocity.x > 0:
 		pl.flip_h = false
+=======
+		$Muzzle.position.x = -25
+		$Muzzle.position.y = 8
+		$Muzzle.rotation_degrees = 180 
+	elif velocity.x > 0:
+		pl.flip_h = false
+		$Muzzle.position.x = 25
+		$Muzzle.position.y = 0
+		$Muzzle.rotation_degrees = 0
+>>>>>>> f6bd53b (lot of changes)
 	
 	#если здоровье истрачено, вызывается функция отвечающая за смерть персонажа
 	if health <= 0:
@@ -79,12 +90,22 @@ func death():
 
 
 func _on_player_hitbox_body_entered(body):
+<<<<<<< HEAD
 	if body.has_method("enemy"): #если у обьекта вошедшего в область есть функция bullet
 		enemy_inattack_range = true #то он может атаковать
 
 
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"): #если у обьекта вышедшего из области есть функция bullet
+=======
+	if body.has_method("enemy"): #если у обьекта вошедшего в область есть функция enemy
+		enemy_inattack_range = true #то он может атаковать
+		
+
+
+func _on_player_hitbox_body_exited(body):
+	if body.has_method("enemy"): #если у обьекта вышедшего из области есть функция enemy
+>>>>>>> f6bd53b (lot of changes)
 		enemy_inattack_range = false #то он не может атаковать
 
 
@@ -92,8 +113,13 @@ func enemy_attack():
 	#если бот может аттаковать и прошёл кулдаун
 	if enemy_inattack_range and enemy_attack_cooldown:
 		health -= 20 #здоровье уменьшается на 20
+<<<<<<< HEAD
 		enemy_attack_cooldown = false #время кулдауна включается
 		$attack_cooldown.start()
+=======
+		enemy_attack_cooldown = false 
+		$attack_cooldown.start() #время кулдауна включается
+>>>>>>> f6bd53b (lot of changes)
 
 
 #таймер кулдауна

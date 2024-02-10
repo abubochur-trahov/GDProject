@@ -1,13 +1,25 @@
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://vwhtc5lfc7j5"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_kj50p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhsks"]
 size = Vector2(7, 7)
+=======
+[gd_scene load_steps=5 format=3 uid="uid://vwhtc5lfc7j5"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_kj50p"]
+[ext_resource type="Texture2D" uid="uid://yl6rid1s3lmc" path="res://textures/pylya (1).png" id="2_7p5yo"]
+[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="2_ll7c8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhsks"]
+size = Vector2(11, 6)
+>>>>>>> f6bd53b (lot of changes)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_kj50p")
 
+<<<<<<< HEAD
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 7.0
 offset_bottom = 7.0
@@ -17,4 +29,23 @@ color = Color(1, 0, 0, 1)
 position = Vector2(3.5, 3.5)
 shape = SubResource("RectangleShape2D_jhsks")
 
+=======
+[node name="Pylya(1)" type="Sprite2D" parent="."]
+position = Vector2(6, 3)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_7p5yo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.5, 3)
+shape = SubResource("RectangleShape2D_jhsks")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+safe_margin = 0.001
+script = ExtResource("2_ll7c8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+position = Vector2(6, 3)
+polygon = PackedVector2Array(-6, -3, -6, 3, 3, 3, 5, 1, 5, -1, 3, -3)
+
+>>>>>>> f6bd53b (lot of changes)
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
